@@ -1,0 +1,364 @@
+:root {
+    --primary-color:  hsl(14, 45%, 36%);
+    --secondary-color: hsl(332, 51%, 32%);
+    --main-bg-color: hsl(0, 0%, 100%);
+    --secondary-bg-color: hsl(330, 100%, 98%);
+    --body-bg-color: hsl(30, 54%, 90%);
+    --primary-font-color: hsl(24, 5%, 18%);
+    --secondary-font-color: hsl(30, 18%, 87%);
+
+    --header-font-family: youngSerif;
+    --paragraph-font-family: outfit;
+
+    --border-radius: 15px;
+
+    --margin-bottom: 1.5em;
+}
+
+@font-face {
+    font-family: outfit;
+    src: url(../assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: youngSerif;
+    src: url(../assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--body-bg-color);
+    color: var(--primary-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    font-family: outfit;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 54rem;
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    width: 4em;
+    height: 4em;
+    margin-right: 1em;
+}
+
+.logo-container p {
+    font-family: youngSerif;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+header ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+header li {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+header li:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.bars {
+    margin-right: 1em;
+    display: none;
+}
+
+.bar {
+    height: 4px;
+    width: 40px;
+    background-color: var(--primary-color);
+    margin-bottom: 0.3em;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 0%, 50%);
+    display: none;
+}
+
+.mobile-view-navbar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    color: var(--secondary-font-color);
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+}
+
+.mobile-view-navbar ul {
+    list-style-type: none;
+    padding-left: 0.5em;
+    padding-right: 1.5em;
+    padding-top: 1em;
+}
+
+.mobile-view-navbar li {
+ padding-left: 0;   
+}
+
+main {
+    font-family: var(--paragraph-font-family);
+    max-width: 50rem;
+    padding: 2em;
+    position: relative;
+}
+
+section {
+    margin-bottom: var(--margin-bottom);
+}
+
+figure {
+    margin-bottom: var(--margin-bottom);
+}
+
+img {
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+h1, h2 { 
+    font-family: var(--header-font-family);
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+}
+
+hr {
+    border: 1px solid var(--secondary-font-color);
+    border-top: 0;
+    margin-bottom: var(--margin-bottom);
+    margin-top: 1.5em;
+}
+
+ul {
+    list-style-position: outside;
+    padding-left: 1em;
+}
+
+ul li {
+    padding-left: 0.5em;
+}
+
+ol {
+    list-style-position: outside;
+    padding-left: 1em;
+}
+
+li {
+    margin-bottom: 0.75em;
+}
+
+li::marker {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+ol li {
+    padding-left: 0.5em;
+}
+
+table {
+    width: 100%;
+    margin-top: 1em;
+    border-collapse: collapse;
+}
+
+td {
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.value-cell {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.time-info {
+    background-color: var(--secondary-bg-color);
+    border-radius: var(--border-radius);
+    padding: 1.5em;
+}
+
+.time-info li::marker {
+    color: var(--secondary-color);
+}
+
+.time-info p {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 0.75em;
+}
+
+.has-bottom {
+    border-bottom: 1px solid var(--secondary-font-color);
+}
+
+.has-bottom td {
+    padding: 1em;
+}
+
+/* Hero section main page */
+
+.two-column-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+}
+
+.brown-section {
+    background-color: var(--primary-color);
+    padding: 2.5em;
+    padding-top: 1em;
+    color: white;
+    border-radius: 25px 0px 0px 25px;
+}
+
+.image-background {
+    background-image: url('/assets/images/main-page-hero.jpg');
+    background-size: cover;
+    background-color: var(--body-bg-color);
+    border-radius: 0 25px 25px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(30, 54%, 90%, 80%);
+}
+
+.image-background button {
+    z-index: 1;
+    position: absolute;
+}
+
+.brown-section p {
+    margin-bottom: 0.75em;
+    font-size: 1.125rem;
+}
+
+.two-column-card h2 {
+    color: var(--body-bg-color);
+    text-align: center;
+    text-wrap: balance;
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--body-bg-color);
+    font-size: 1.125rem;
+    font-family: inherit;
+    padding: 1.5em 2em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--body-bg-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 4em;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        border-radius: 0;
+        padding: 0;
+    }
+
+    img {
+        border-radius: 0;
+    }
+
+    section {
+        padding-left: 2em;
+        padding-right: 2em;
+    }    
+}
+
+@media (max-width: 550px) {
+    header ul {
+        display: none;
+    }
+
+    .bars {
+        display: block;
+    }
+
+    .overlay {
+        display: none;
+    }
+    
+    .mobile-view-navbar ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
