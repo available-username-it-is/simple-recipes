@@ -295,11 +295,86 @@ button {
     font-family: inherit;
     padding: 1.5em 2em;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 button:hover {
     background-color: var(--body-bg-color);
     color: var(--primary-color);
+}
+
+/* Recipe card */
+
+.section-header {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.image-column {
+    margin: 0;
+}
+
+.two-column-card img {
+    border-radius: 25px 0px 0px 25px;
+    height: 100%;
+}
+
+.text-column {
+    background-color: var(--secondary-bg-color);
+    border-radius: 0 25px 25px 0;
+    padding: 1em 1.5em;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.user-info img {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    margin-right: 0.5em;
+}
+
+.user-info div {
+    font-size: 0.8rem;
+}
+
+h3 {
+    font: 1.4rem youngSerif;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-column p {
+    font-size: 0.875rem;
+}
+
+.text-column hr {
+    margin-top: 4em;
+    margin-bottom: 1em;
+}
+
+.heart-symbol {
+    color: red;
+}
+
+.like-amount p {
+    color: black;
+}
+
+.button-container {
+    margin-top: 2em;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
