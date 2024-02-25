@@ -377,6 +377,78 @@ h3 {
     text-align: center;
 }
 
+/* Subscription card */
+
+.flex-columns {
+    display: flex;
+}
+
+.flex-columns figure {
+    margin: 0;
+}
+
+.flex-columns img {
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+}
+
+.form-column {
+    box-sizing: border-box;
+    background-color: var(--secondary-bg-color);
+    padding: 0.8em 2em 1em 1.5em;
+    border-radius: 25px 0 0 25px;
+    max-width: 40%;
+}
+
+.form-column h3 {
+    margin-bottom: 0;
+}
+
+.form-column p, label {
+    font-size: 0.875rem;
+    text-wrap: balance;
+}
+
+.form-column form {
+    margin-top: 1.5em;
+}
+
+.two-column-form {
+    display: flex;
+    gap: 2.5em;
+    margin-bottom: 2em;
+}
+
+.input-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-grow: 1;
+}
+
+.flex-columns input {
+    border: 1px solid var(--primary-color);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.flex-columns input:focus {
+    border-color: black;
+}
+
+.flex-columns form button {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+
 @media (max-width: 768px) {
     body {
         padding: 4em;
