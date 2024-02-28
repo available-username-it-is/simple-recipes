@@ -97,6 +97,7 @@ header li:hover {
 
 .overlay {
     position: absolute;
+    z-index: 2;
     top: 0;
     bottom: 0;
     right: 0;
@@ -494,15 +495,59 @@ footer p {
     color: hsl(16, 27%, 52%);
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 4em;
-    }
-}
 
 @media (max-width: 700px) {
-    body {
-        padding: 2em;
+    .two-column-card {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: none;
+    }
+
+    .brown-section {
+        border-radius: 25px 25px 0 0;
+    }
+
+    .brown-section p {
+        text-align: center;
+    }
+
+    .image-background {
+        border-radius: 0 0 25px 25px;
+    }
+
+    .image-column {
+        flex: 1;
+    }
+
+    .recipe-card img {
+        border-radius: 25px 25px 0 0;
+    }
+
+    .text-column {
+        border-radius: 0 0 25px 25px;
+        flex: 1;
+    }
+
+    .recipe-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flex-columns {
+        flex-direction: column;
+    }
+
+    .form-column {
+        max-width: 100%;
+        border-radius: 25px;
+    }
+
+    .form-column p, .form-column h3 {
+        text-align: center;
+    }
+
+    .newsletter-image {
+        display: none;
     }
 }
 
@@ -523,7 +568,11 @@ footer p {
     section {
         padding-left: 2em;
         padding-right: 2em;
-    }    
+    }
+    
+    .brown-section {
+        padding: 1em;
+    }
 }
 
 @media (max-width: 550px) {
@@ -543,6 +592,10 @@ footer p {
         display: flex;
         flex-direction: column;
     }
+
+    .two-column-form {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 500px) {
@@ -554,3 +607,10 @@ footer p {
         font-size: 1.5rem;
     }
 }
+
+@media (max-width: 425px) {
+    .brown-section p {
+        font-size: 1rem;
+    }
+}
+
