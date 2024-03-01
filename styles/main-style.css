@@ -495,6 +495,45 @@ footer p {
     color: hsl(16, 27%, 52%);
 }
 
+/*
+    All recipes page
+*/
+
+.centered-section {
+    text-align: center;
+    font-size: 1.45rem;
+}
+
+.centered-section h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+/*
+    Search and filter section
+*/
+
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-bar input {
+    width: 100%;
+    font-size: 1.25rem;
+    font-family: Outfit;
+    border: none;
+    padding: 1em 2.5em;
+    padding-right: 1em;
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    margin-left: 0.2em;
+}
 
 @media (max-width: 700px) {
     .two-column-card {
