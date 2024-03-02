@@ -1,3 +1,5 @@
+// Show and hide responsive header menu
+
 const bars = document.querySelector(".bars");
 const overlay = document.querySelector(".overlay");
 
@@ -8,3 +10,40 @@ bars.addEventListener("click", () => {
         overlay.style.display = "none";
     }
 });
+
+
+// Dropdown filter menu
+const expandFiltersButtons = document.querySelectorAll(".expand-filter");
+const filtersDropdownContainers = Array.from(document.querySelectorAll(".filters-dropdown-container"));
+
+if (expandFiltersButtons) {
+    expandFiltersButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            const filtersDropdown = filtersDropdownContainers[index].querySelector("ul");
+            if (filtersDropdown.style.display === "block") {
+                filtersDropdown.style.display = "none";
+            } else {
+                closeAllDropdowns();
+                filtersDropdown.style.display = "block";
+            }
+        });
+    });
+
+    // Close all dropdowns except the one being opened
+    function closeAllDropdowns() {
+        filtersDropdownContainers.forEach(container => {
+            const dropdown = container.querySelector("ul");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        });
+    }
+
+    // Event listener to close dropdowns when clicking outside
+    window.addEventListener("click", (event) => {
+        const isClickInsideDropdown = filtersDropdownContainers.some(container => container.contains(event.target));
+        if (!isClickInsideDropdown) {
+            closeAllDropdowns();
+        }
+    });
+}

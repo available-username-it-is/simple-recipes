@@ -63,18 +63,53 @@
 
       <div class="search-params">
         <div class="filters-select">
-          <select id="mealtime">
-            <option value="">Mealtime</option>
-            <option value="">Breakfast</option>
-            <option value="">Lunch</option>
-            <option value="">Dinner</option>
-          </select>
-          <select id="ingredients">
-            <option value="">Ingredients</option>
-            <option value="">Egg</option>
-            <option value="">Flour</option>
-            <option value="">Milk</option>
-          </select>
+          <div class="filters-dropdown-container">
+            <div class="expand-filter">
+              <span>Mealtime</span>
+              <span class="material-symbols-outlined expand-icon">
+                expand_more
+              </span>
+            </div>
+              
+            <ul>
+              <li>
+                <input type="checkbox" name="" id="breakfast-filter">
+                <label for="breakfast-filter">Breakfast</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="lunch-filter">
+                <label for="lunch-filter">Lunch</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="dinner-filter">
+                <label for="dinner-filter">Dinner</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filters-dropdown-container">
+            <div class="expand-filter">
+              <span>Ingredients</span>
+              <span class="material-symbols-outlined expand-icon">
+                expand_more
+              </span>
+            </div>
+              
+            <ul>
+              <li>
+                <input type="checkbox" name="" id="breakfast-filter">
+                <label for="breakfast-filter">Eggs</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="lunch-filter">
+                <label for="lunch-filter">Flour</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="dinner-filter">
+                <label for="dinner-filter">Milk</label>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <select name="" id="">
