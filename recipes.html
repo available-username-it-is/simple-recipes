@@ -21,8 +21,8 @@
 
     <nav>
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Recipes</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
         <li><a href="">Submit recipe</a></li>
       </ul>
     </nav>
@@ -38,8 +38,8 @@
     <div class="overlay">
       <nav class="mobile-view-navbar">
         <ul>
-          <li>Home</li>
-          <li>Recipes</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
           <li>Submit recipe</li>
         </ul>
       </nav>
@@ -112,6 +112,17 @@
           </div>
         </div>
 
+        <div class="responsive-filters">
+          <div class="filter-icon-container">
+            <span class="material-symbols-outlined filter-icon">
+              filter_list
+            </span>
+            <div id="filters-count">1</div>
+          </div>
+
+          
+        </div>
+
         <select name="" id="">
           <option value="">A-Z</option>
           <option value="">Z-A</option>
@@ -127,12 +138,70 @@
           </span>
         </div>
         <div class="selected-filter">
+          <span>Dinner</span>
+          <span class="material-symbols-outlined remove-filter">
+            close
+          </span>
+        </div>
+        <div class="selected-filter">
+          <span>Dinner</span>
+          <span class="material-symbols-outlined remove-filter">
+            close
+          </span>
+        </div>
+        <div class="selected-filter">
+          <span>Dinner</span>
+          <span class="material-symbols-outlined remove-filter">
+            close
+          </span>
+        </div>
+        <div class="selected-filter">
+          <span>Dinner</span>
+          <span class="material-symbols-outlined remove-filter">
+            close
+          </span>
+        </div>
+        <div class="selected-filter">
           <span>Egg</span>
           <span class="material-symbols-outlined remove-filter">
             close
           </span>
         </div>
         <span id="clear-filters">Clear all</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="two-column-card recipe-card">
+        <img src="assets/images/recipe-1-image.webp" alt="bread image">
+        <!-- <div class="image-column">
+        </div> -->
+
+        <div class="text-column">
+          <div class="user-info">
+            <img src="assets/images/avatar.jpg">
+
+            <div>
+              <p><b>Admin</b></p>
+              <p>Feb 16, 2024</p>
+            </div>
+          </div>
+
+          <h3>Miracle no-knead bread</h3>
+
+          <p>Here is one of the most popular recipes The Times has
+            ever published, courtesy of Jim Lahey, owner of Sullivan
+            Street Bakery. It requires no kneading. It uses no special
+            ingredients, equipment or techniques...</p>
+
+            
+          <hr>
+          <div class="card-footer">
+            <p>3 comments</p>
+            <p><span id="like-amount">6</span><span class="heart-symbol">&#10084;</span></p>
+          </div>
+        </div>
+        
       </div>
     </section>
 
