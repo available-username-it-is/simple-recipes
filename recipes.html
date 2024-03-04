@@ -120,7 +120,50 @@
             <div id="filters-count">1</div>
           </div>
 
-          
+          <dialog class="filters-modal">
+            <div class="modal-header">
+              <p>Filter</p>
+              <span class="material-symbols-outlined close-modal">
+                close
+              </span>
+            </div>
+
+            <details open>
+              <summary >Mealtime</summary>
+              <ul>
+                <li>
+                  <input type="checkbox" name="" id="breakfast-filter">
+                  <label for="breakfast-filter">Breakfast</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="" id="lunch-filter">
+                  <label for="lunch-filter">Lunch</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="" id="dinner-filter">
+                  <label for="dinner-filter">Dinner</label>
+                </li>
+              </ul>
+            </details>
+
+            <details open>
+              <summary >Ingredients</summary>
+              <ul>
+                <li>
+                  <input type="checkbox" name="" id="breakfast-filter">
+                  <label for="breakfast-filter">Eggs</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="" id="lunch-filter">
+                  <label for="lunch-filter">Flour</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="" id="dinner-filter">
+                  <label for="dinner-filter">Milk</label>
+                </li>
+              </ul>
+            </details>
+          </dialog>
         </div>
 
         <select name="" id="">
@@ -171,38 +214,7 @@
       </div>
     </section>
 
-    <section>
-      <div class="two-column-card recipe-card">
-        <img src="assets/images/recipe-1-image.webp" alt="bread image">
-        <!-- <div class="image-column">
-        </div> -->
-
-        <div class="text-column">
-          <div class="user-info">
-            <img src="assets/images/avatar.jpg">
-
-            <div>
-              <p><b>Admin</b></p>
-              <p>Feb 16, 2024</p>
-            </div>
-          </div>
-
-          <h3>Miracle no-knead bread</h3>
-
-          <p>Here is one of the most popular recipes The Times has
-            ever published, courtesy of Jim Lahey, owner of Sullivan
-            Street Bakery. It requires no kneading. It uses no special
-            ingredients, equipment or techniques...</p>
-
-            
-          <hr>
-          <div class="card-footer">
-            <p>3 comments</p>
-            <p><span id="like-amount">6</span><span class="heart-symbol">&#10084;</span></p>
-          </div>
-        </div>
-        
-      </div>
+    <section id="recipes-section">
     </section>
 
     <footer>
@@ -225,6 +237,7 @@
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/recipes-scripts.js"></script>
   </main>
 </body>
 </html>

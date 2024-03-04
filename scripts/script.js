@@ -47,3 +47,19 @@ if (expandFiltersButtons) {
         }
     });
 }
+
+
+
+// Show filters modal
+const filtersButton = document.querySelector(".filter-icon-container");
+const filtersModal = document.querySelector(".filters-modal");
+const closeModalButton = document.querySelector(".close-modal");
+if (filtersButton) {
+    filtersButton.addEventListener("click", () => {
+        filtersModal.showModal();
+    })
+
+    closeModalButton.addEventListener("click", () => {
+        filtersModal.close();
+    })
+}

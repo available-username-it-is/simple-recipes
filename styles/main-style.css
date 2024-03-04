@@ -513,6 +513,10 @@ footer p {
     font-size: 2rem;
 }
 
+#recipes-section .recipe-card {
+    margin-bottom: 2em;
+}
+
 /*
     Search and filter section
 */
@@ -663,6 +667,28 @@ select {
     justify-content: center;
 }
 
+.filters-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 280px;
+    padding: 1em;
+    min-width: 200px;
+}
+
+.filters-modal ul {
+    list-style: none;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
 @media (max-width: 700px) {
     .two-column-card {
         grid-template-rows: 1fr 1fr;
@@ -784,7 +810,7 @@ select {
 
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
     .brown-section p,
     .centered-section p,
     span,
