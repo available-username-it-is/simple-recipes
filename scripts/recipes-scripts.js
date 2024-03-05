@@ -25,6 +25,19 @@ const recipes = [
         publicationDate: "2024-02-18",
         commentCount: 7,
         likeCount: 16
+    },
+    {
+        recipeID: 3,
+        recipeName: "Challah French Toast",
+        recipeImage: "assets/images/recipe-3-image.webp",
+        recipeText: `Challah is the best bread for French toast, bar none. 
+                    It’s sturdy enough to stand up to its custard soak and 
+                    a shower of maple syrup, yet tender and fluffy enough to cut with a fork.....`,
+        ingredients: ["flour", "water", "yeast", "salt"],
+        userID: 1,
+        publicationDate: "2024-01-31",
+        commentCount: 4,
+        likeCount: 1
     }
 ];
 
@@ -63,26 +76,49 @@ function renderRecipes(recipes) {
 }
 
 function sortByName(recipes) {
-    return recipes.toSorted();
+    return recipes.toSorted((a, b) => {
+        if (a.recipeName > b.recipeName) {
+            return 1;
+        } else if (a.recipeName < b.recipeName) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
 }
 
 function sortByDate(recipes) {
     return recipes.toSorted((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate));
 }
 
-let sortedRecipes = sortByName(recipes).toReversed();
-renderRecipes(sortedRecipes);
+let recipesToRender = sortByName(recipes);
+renderRecipes(recipesToRender);
+
+function getSearchResult(recipes, searchText) {
+    return recipes.filter(recipe => recipe.recipeName.toLowerCase().includes(searchText.toLowerCase()));
+}
+
+// Searching recipes
+const searchbar = document.getElementById("recipes-searchbar");
+searchbar.addEventListener("input", (event) => {
+    recipesToRender = getSearchResult(recipes, event.target.value); 
+    
+    recipesSection.innerHTML = "";
+    renderRecipes(recipesToRender);
+});
+
+
+// Sorting recipes
 const sortingSelect = document.getElementById("sorting-select");
 
-sortingSelect.addEventListener("change", () => {
+sortingSelect.addEventListener("change", (event) => {
     if (sortingSelect.value === "AZ") {
-        sortedRecipes = sortByName(recipes).toReversed();
+        recipesToRender = sortByName(recipesToRender);
     } else if (sortingSelect.value === "ZA") {
-        sortedRecipes = sortByName(recipes);
+        recipesToRender = sortByName(recipesToRender).toReversed();
     } else if (sortingSelect.value === "Date") {
-        sortedRecipes = sortByDate(recipes);
+        recipesToRender = sortByDate(recipesToRender);
     }
     recipesSection.innerHTML = "";
-    renderRecipes(sortedRecipes);
-
+    renderRecipes(recipesToRender);
 });
