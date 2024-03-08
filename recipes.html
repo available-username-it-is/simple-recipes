@@ -70,19 +70,26 @@
                 expand_more
               </span>
             </div>
-              
-            <ul>
+            
+            <ul class="mealtime-filter">
               <li>
-                <input type="checkbox" name="" id="breakfast-filter">
+                <input type="checkbox" name="" id="breakfast-filter" value="breakfast">
                 <label for="breakfast-filter">Breakfast</label>
               </li>
               <li>
-                <input type="checkbox" name="" id="lunch-filter">
+                <input type="checkbox" name="" id="lunch-filter" value="lunch">
                 <label for="lunch-filter">Lunch</label>
               </li>
               <li>
-                <input type="checkbox" name="" id="dinner-filter">
+                <input type="checkbox" name="" id="dinner-filter" value="dinner">
                 <label for="dinner-filter">Dinner</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="snack-filter" value="snack">
+                <label for="snack-filter">Snack</label>
+              </li>
+              <li>
+                <button class="apply-filters">Apply</button>
               </li>
             </ul>
           </div>
@@ -95,18 +102,25 @@
               </span>
             </div>
               
-            <ul>
+            <ul class="ingredients-filter">
               <li>
-                <input type="checkbox" name="" id="breakfast-filter">
-                <label for="breakfast-filter">Eggs</label>
+                <input type="checkbox" name="" id="egg-filter" value="eggs">
+                <label for="egg-filter">Eggs</label>
               </li>
               <li>
-                <input type="checkbox" name="" id="lunch-filter">
-                <label for="lunch-filter">Flour</label>
+                <input type="checkbox" name="" id="flour-filter" value="flour">
+                <label for="flour-filter">Flour</label>
               </li>
               <li>
-                <input type="checkbox" name="" id="dinner-filter">
-                <label for="dinner-filter">Milk</label>
+                <input type="checkbox" name="" id="milk-filter" value="milk">
+                <label for="milk-filter">Milk</label>
+              </li>
+              <li class="new-ingredient-container">
+                <span>+</span>
+                <input type="text" class="ingredient-input" placeholder="Your ingredient...">
+              </li>
+              <li>
+                <button class="apply-filters">Apply</button>
               </li>
             </ul>
           </div>
@@ -130,39 +144,48 @@
 
             <details open>
               <summary >Mealtime</summary>
-              <ul>
+              <ul class="mealtime-filter">
                 <li>
-                  <input type="checkbox" name="" id="breakfast-filter">
-                  <label for="breakfast-filter">Breakfast</label>
+                  <input type="checkbox" name="" id="breakfast-filter-mob" value="breakfast">
+                  <label for="breakfast-filter-mob">Breakfast</label>
                 </li>
                 <li>
-                  <input type="checkbox" name="" id="lunch-filter">
-                  <label for="lunch-filter">Lunch</label>
+                  <input type="checkbox" name="" id="lunch-filter-mob" value="lunch">
+                  <label for="lunch-filter-mob">Lunch</label>
                 </li>
                 <li>
-                  <input type="checkbox" name="" id="dinner-filter">
-                  <label for="dinner-filter">Dinner</label>
+                  <input type="checkbox" name="" id="dinner-filter-mob" value="dinner">
+                  <label for="dinner-filter-mob">Dinner</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="" id="snack-filter-mob" value="snack">
+                  <label for="snack-filter-mob">Snack</label>
                 </li>
               </ul>
             </details>
 
             <details open>
               <summary >Ingredients</summary>
-              <ul>
+              <ul class="ingredients-filter">
                 <li>
-                  <input type="checkbox" name="" id="breakfast-filter">
-                  <label for="breakfast-filter">Eggs</label>
+                  <input type="checkbox" name="" id="egg-filter-mob" value="egg">
+                  <label for="egg-filter-mob">Eggs</label>
                 </li>
                 <li>
-                  <input type="checkbox" name="" id="lunch-filter">
-                  <label for="lunch-filter">Flour</label>
+                  <input type="checkbox" name="" id="flour-filter-mob" value="flour">
+                  <label for="flour-filter-mob">Flour</label>
                 </li>
                 <li>
-                  <input type="checkbox" name="" id="dinner-filter">
-                  <label for="dinner-filter">Milk</label>
+                  <input type="checkbox" name="" id="milk-filter-mob" value="milk">
+                  <label for="milk-filter-mob">Milk</label>
+                </li>
+                <li class="new-ingredient-container">
+                  <span>+</span>
+                  <input type="text" class="ingredient-input" placeholder="Your ingredient...">
                 </li>
               </ul>
             </details>
+            <button class="apply-filters">Apply</button>
           </dialog>
         </div>
 

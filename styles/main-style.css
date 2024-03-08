@@ -563,6 +563,13 @@ select {
     gap: 1em;
 }
 
+.filters-dropdown-container .ingredient-input {
+    width: 100%;
+    font-family: Outfit;
+    font-size: 1.25rem;
+    height: 25px;
+}
+
 .expand-filter {
     display: flex;
     align-items: center;
@@ -586,8 +593,9 @@ select {
     background-color: var(--main-bg-color);
     list-style: none;
     padding: 0.5em;
-    padding-right: 3em;
+    /* padding-right: 3em; */
     position: absolute;
+    min-width: 12.5em;
 }
 
 .filters-dropdown-container li {
@@ -597,8 +605,32 @@ select {
     padding: 0;
 }
 
+.filters-dropdown-container button {
+    padding: 0.5em;
+    width: 100%;
+}
+
 .filters-dropdown-container label, .filters-dropdown-container span {
     font-size: 1.25rem;
+}
+
+.new-ingredient-container span {
+    color: green;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.new-ingredient-container span:hover {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+details .new-ingredient-container {
+    display: flex;
+}
+
+details .new-ingredient-container input {
+    font-size: 1.125rem;
+    font-family:  Outfit;
 }
 
 .filters-dropdown-container input {
@@ -689,6 +721,11 @@ select {
     justify-content: space-between;
     font-size: 1.25rem;
     font-weight: bold;
+}
+
+.filters-modal button {
+    width: 100%;
+    padding: 0.7em;
 }
 
 @media (max-width: 700px) {

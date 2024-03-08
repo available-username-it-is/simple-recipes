@@ -8,6 +8,7 @@ const recipes = [
                     It requires no kneading. 
                     It uses no special ingredients, equipment or techniques...`,
         ingredients: ["flour", "water", "yeast", "salt"],
+        mealtime: "Dinner",
         userID: 1,
         publicationDate: "2025-02-16",
         commentCount: 3,
@@ -20,7 +21,8 @@ const recipes = [
         recipeText: `This edible cookie dough recipe is egg-free and 
                     will satisfy any cravings for chocolate chip cookies without the wait.  
                     I have made this with friends before and they said that they loved the taste....`,
-        ingredients: ["flour", "water", "yeast", "salt"],
+        ingredients: ["flour", "water", "salt", "milk"],
+        mealtime: "Snack",
         userID: 1,
         publicationDate: "2024-02-18",
         commentCount: 7,
@@ -33,7 +35,8 @@ const recipes = [
         recipeText: `Challah is the best bread for French toast, bar none. 
                     It’s sturdy enough to stand up to its custard soak and 
                     a shower of maple syrup, yet tender and fluffy enough to cut with a fork.....`,
-        ingredients: ["flour", "water", "yeast", "salt"],
+        ingredients: ["bread", "salt"],
+        mealtime: "Breakfast",
         userID: 1,
         publicationDate: "2024-01-31",
         commentCount: 4,
@@ -122,3 +125,72 @@ sortingSelect.addEventListener("change", (event) => {
     recipesSection.innerHTML = "";
     renderRecipes(recipesToRender);
 });
+
+
+// Recipe filtering
+const addNewIngredientButton = document.querySelectorAll(".new-ingredient-container span");
+const ingredientsFilter = document.querySelectorAll(".ingredients-filter");
+const applyFiltersButton = document.querySelectorAll(".apply-filters");
+const chosenFiltersShow = document.querySelector(".selected-filters");
+
+addNewIngredientButton.forEach(button => {
+    button.addEventListener("click", () => {
+        const ingredientInput = button.nextElementSibling;
+        addNewIngredient(ingredientInput);
+    });
+});
+
+function addNewIngredient(ingredientInput) {
+    if (ingredientInput.value.trim() !== "") {
+        let ingredientCheckbox = `
+            <li>
+                <input type="checkbox" id="${ingredientInput.value}-filter" value=${ingredientInput.value.toLowerCase()}>
+                <label for="${ingredientInput.value}-filter">${capitalize(ingredientInput.value)}</label>
+            </li>
+        `;
+        ingredientsFilter.forEach(list => list.insertAdjacentHTML("afterbegin", ingredientCheckbox));
+        ingredientInput.value = "";
+        return ingredientCheckbox;
+    }
+}
+
+function capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1);
+}
+
+applyFiltersButton.forEach(button => {
+    button.addEventListener('click', () => {
+        const selectedFilters = getSelectedFilters();
+        console.log(selectedFilters);
+        const filteredRecipes = filterRecipes(selectedFilters);
+        if (filteredRecipes.length > 0) {
+            recipesSection.innerHTML = "";
+            recipesToRender = filteredRecipes;
+            renderRecipes(recipesToRender);
+        } else {
+            recipesSection.innerHTML = "";
+            const notification = `
+                <p style='font-size: 1.5rem; text-align: center;'>No recipes found</p>
+            `;
+            recipesSection.insertAdjacentHTML("beforeend", notification);
+        }
+    });
+});
+
+function getSelectedFilters() {
+    const mealtimeFilters = Array.from(document.querySelectorAll('.mealtime-filter input[type="checkbox"]:checked'))
+                                .map(checkbox => checkbox.value.toLowerCase());
+    const ingredientsFilters = Array.from(document.querySelectorAll('.ingredients-filter input[type="checkbox"]:checked'))
+                                    .map(checkbox => checkbox.value.toLowerCase());
+    return { mealtimeFilters, ingredientsFilters };
+}
+
+function filterRecipes(filters) {
+    const { mealtimeFilters, ingredientsFilters } = filters;
+    return recipes.filter(recipe => {
+        const passesMealtimeFilter = mealtimeFilters.length === 0 || mealtimeFilters.includes(recipe.mealtime.toLowerCase());
+        const passesIngredientsFilter = ingredientsFilters.length === 0 || ingredientsFilters.some(ingredient => recipe.ingredients.includes(ingredient.toLowerCase()));
+        return passesMealtimeFilter && passesIngredientsFilter;
+    });
+}
+
