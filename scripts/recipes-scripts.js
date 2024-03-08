@@ -131,7 +131,7 @@ sortingSelect.addEventListener("change", (event) => {
 const addNewIngredientButton = document.querySelectorAll(".new-ingredient-container span");
 const ingredientsFilter = document.querySelectorAll(".ingredients-filter");
 const applyFiltersButton = document.querySelectorAll(".apply-filters");
-const chosenFiltersShow = document.querySelector(".selected-filters");
+const chosenFiltersShow = document.querySelector(".filters-display");
 
 addNewIngredientButton.forEach(button => {
     button.addEventListener("click", () => {
@@ -161,7 +161,24 @@ function capitalize(string) {
 applyFiltersButton.forEach(button => {
     button.addEventListener('click', () => {
         const selectedFilters = getSelectedFilters();
-        console.log(selectedFilters);
+        
+        chosenFiltersShow.innerHTML = '';
+
+        for (let filters in selectedFilters) {
+            for (let label of selectedFilters[filters]) {
+                const filterDisplayText = `
+                    <div class="selected-filter">
+                        <span>${capitalize(label)}</span>
+                        <span class="material-symbols-outlined remove-filter">
+                          close
+                        </span>
+                    </div>
+                `;
+                
+                chosenFiltersShow.insertAdjacentHTML("beforeend", filterDisplayText);
+            }
+        }
+
         const filteredRecipes = filterRecipes(selectedFilters);
         if (filteredRecipes.length > 0) {
             recipesSection.innerHTML = "";

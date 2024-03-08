@@ -563,6 +563,8 @@ select {
     gap: 1em;
 }
 
+
+
 .filters-dropdown-container .ingredient-input {
     width: 100%;
     font-family: Outfit;
@@ -648,6 +650,12 @@ details .new-ingredient-container input {
     align-items: center;
     margin-top: 1.5em;
     margin-bottom: 2em;
+    flex-wrap: wrap;
+}
+
+.filters-display {
+    display: flex;
+    gap: 1em;
     flex-wrap: wrap;
 }
 
