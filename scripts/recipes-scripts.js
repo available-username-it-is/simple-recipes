@@ -132,6 +132,7 @@ const addNewIngredientButton = document.querySelectorAll(".new-ingredient-contai
 const ingredientsFilter = document.querySelectorAll(".ingredients-filter");
 const applyFiltersButton = document.querySelectorAll(".apply-filters");
 const chosenFiltersShow = document.querySelector(".filters-display");
+const clearFiltersButton = document.getElementById('clear-filters');
 
 addNewIngredientButton.forEach(button => {
     button.addEventListener("click", () => {
@@ -160,12 +161,19 @@ function capitalize(string) {
 
 applyFiltersButton.forEach(button => {
     button.addEventListener('click', () => {
+        clearFiltersButton.style.display = "inline";
         const selectedFilters = getSelectedFilters();
         
         chosenFiltersShow.innerHTML = '';
+        const { mealtimeFilters, ingredientsFilters } = selectedFilters;
+        if (mealtimeFilters.length === 0 && ingredientsFilters.length === 0) {
+            clearFiltersButton.style.display = "none";
+        }
 
         for (let filters in selectedFilters) {
-            for (let label of selectedFilters[filters]) {
+            
+            for (let label of selectedFilters[filters]) {   
+                
                 const filterDisplayText = `
                     <div class="selected-filter">
                         <span>${capitalize(label)}</span>
@@ -193,6 +201,42 @@ applyFiltersButton.forEach(button => {
         }
     });
 });
+
+document.body.addEventListener("click", event => {
+    if (event.target.classList.contains('remove-filter')) {
+        const filterContainer = event.target.parentElement;
+        const filterText = filterContainer.firstElementChild.innerHTML.toLowerCase();
+        
+        const mealtimeFilters = Array.from(document.querySelectorAll('.mealtime-filter input[type="checkbox"]:checked'));
+        if (mealtimeFilters.length > 0) {
+            const filterInput = mealtimeFilters.find(input => input.value.toLowerCase() === filterText);
+            if (filterInput !== undefined) filterInput.checked = false; 
+        }
+        
+        const ingredientsFilters = Array.from(document.querySelectorAll('.ingredients-filter input[type="checkbox"]:checked'));
+        if (ingredientsFilters.length > 0) {
+            const filterInput = ingredientsFilters.find(input => input.value.toLowerCase() === filterText);
+            if (filterInput !== undefined) filterInput.checked = false; 
+        }
+        
+        const selectedFilters = getSelectedFilters();
+        const filteredRecipes = filterRecipes(selectedFilters);
+
+        if (filteredRecipes.length > 0) {
+            recipesSection.innerHTML = "";
+            recipesToRender = filteredRecipes;
+            renderRecipes(recipesToRender);
+        } else {
+            recipesSection.innerHTML = "";
+            const notification = `
+                <p style='font-size: 1.5rem; text-align: center;'>No recipes found</p>
+            `;
+            recipesSection.insertAdjacentHTML("beforeend", notification);
+        }
+
+        filterContainer.remove();
+    }
+})
 
 function getSelectedFilters() {
     const mealtimeFilters = Array.from(document.querySelectorAll('.mealtime-filter input[type="checkbox"]:checked'))

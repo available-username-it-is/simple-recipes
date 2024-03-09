@@ -677,6 +677,7 @@ details .new-ingredient-container input {
 #clear-filters {
     text-decoration: underline;
     cursor: pointer;
+    display: none;
 }
 
 #clear-filters:hover {
