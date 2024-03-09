@@ -202,6 +202,37 @@ applyFiltersButton.forEach(button => {
     });
 });
 
+if (clearFiltersButton) {
+    clearFiltersButton.addEventListener("click", () => {
+        const filters = document.querySelectorAll(".filters-select input[type='checkbox']:checked");
+        filters.forEach(filter => {
+            filter.checked = false;
+        })
+
+        const selectedFilters = getSelectedFilters();
+
+        if (selectedFilters['mealtimeFilters'].length === 0 && selectedFilters['ingredientsFilters'].length === 0) {
+            clearFiltersButton.style.display = "none";
+        }
+
+        const filteredRecipes = filterRecipes(selectedFilters);
+
+        if (filteredRecipes.length > 0) {
+            recipesSection.innerHTML = "";
+            recipesToRender = filteredRecipes;
+            renderRecipes(recipesToRender);
+        } else {
+            recipesSection.innerHTML = "";
+            const notification = `
+                <p style='font-size: 1.5rem; text-align: center;'>No recipes found</p>
+            `;
+            recipesSection.insertAdjacentHTML("beforeend", notification);
+        }
+
+        chosenFiltersShow.innerHTML = "";
+    })
+}
+
 document.body.addEventListener("click", event => {
     if (event.target.classList.contains('remove-filter')) {
         const filterContainer = event.target.parentElement;
@@ -218,8 +249,13 @@ document.body.addEventListener("click", event => {
             const filterInput = ingredientsFilters.find(input => input.value.toLowerCase() === filterText);
             if (filterInput !== undefined) filterInput.checked = false; 
         }
-        
+
         const selectedFilters = getSelectedFilters();
+
+        if (selectedFilters['mealtimeFilters'].length === 0 && selectedFilters['ingredientsFilters'].length === 0) {
+            clearFiltersButton.style.display = "none";
+        }
+
         const filteredRecipes = filterRecipes(selectedFilters);
 
         if (filteredRecipes.length > 0) {
