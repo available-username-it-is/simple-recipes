@@ -848,6 +848,49 @@ Submit recipe page
     outline: none;
 }
 
+.ingredient-input-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5em;
+}
+
+.ingredient-input-line input {
+    margin: 0;
+}
+
+#ingredient-input {
+    box-sizing: border-box;
+    max-width: 23.5625rem;
+    flex-shrink: 1;
+    flex: 1;
+}
+
+.ingredient-amount-input {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.add-line-container {
+    cursor: pointer;
+}
+
+.plus-circle {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 125px;
+    min-width: 25px;
+    min-height: 25px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-right: 0.5em;
+}
+
+.add-line-container > span:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 700px) {
     .two-column-card {
         grid-template-rows: 1fr 1fr;

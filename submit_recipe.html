@@ -51,8 +51,8 @@
     </section>
 
     <div class="input-container">
-        <label for="recipe-name">Title</label>
-        <input type="text" id="recipe-name" placeholder="Give your recipe a name">
+      <label for="recipe-name">Title</label>
+      <input type="text" id="recipe-name" placeholder="Give your recipe a name">
     </div>
 
     <div class="input-container">
@@ -96,11 +96,11 @@
         <div class="two-column-field">
             <div class="two-column-input">
                 <label for="cook-hours">Hours</label>
-                <input type="text" placeholder="0" id="cook-hours">
+                <input type="text" placeholder="0" maxlength="4" id="cook-hours">
             </div>
             <div class="two-column-input">
                 <label for="cook-mins">Minutes</label>
-                <input type="text" placeholder="0" id="cook-mins">
+                <input type="text" placeholder="0" maxlength="4" id="cook-mins">
             </div>
         </div>
     </div>
@@ -108,11 +108,11 @@
     <div class="input-container">
         <label for="">Ingredients</label>
         <div class="ingredient-input-line">
-            <input type="text" placeholder="Ingredient">
+            <input type="text" placeholder="Ingredient" id="ingredient-input">
             <div class="ingredient-amount-input">
                 <input type="number" min="0" max="9999" placeholder="0">
                 <select name="" id="">
-                    <option value=""></option>
+                    <option value="">----</option>
                     <option value="">Kilogram</option>
                     <option value="">Gram</option>
                     <option value="">Mililiter</option>
@@ -122,6 +122,10 @@
                 </select>
             </div>
         </div>
+
+        <div class="add-line-container">
+          <span><span class="plus-circle">+</span>Add ingredient</span>
+        </div>
     </div>
 
     <div class="input-container">
@@ -129,6 +133,14 @@
         <div id="instructions-container">
             <input type="text" name="" placeholder="Instruction">
         </div>
+        
+        <div class="add-line-container">
+          <span><span class="plus-circle">+</span>Add instruction</span>
+        </div>
+    </div>
+
+    <div class="button-container">
+      <button>Save</button>
     </div>
     <!-- Finish -->
 
