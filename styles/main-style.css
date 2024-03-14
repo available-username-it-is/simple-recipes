@@ -737,6 +737,117 @@ details .new-ingredient-container input {
     padding: 0.7em;
 }
 
+/*
+Submit recipe page
+*/
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.input-container label {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.input-container input,
+.input-container textarea {
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    font-family: Outfit;
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 0;
+}
+
+
+.input-container input:focus,
+.input-container textarea:focus {
+    outline: 1px solid var(--primary-color);
+}
+
+.two-column-field {
+  display: flex;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.photo-container {
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2em;
+    border-radius: 25px;
+    transition: all 0.5s;
+    width: 100%;
+}
+
+.photo-container:hover {
+    background-color: #592F21;
+}
+
+.photo-container p {
+    color: var(--body-bg-color);
+}
+
+#image_uploads {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    height: 0;
+}
+
+.camera-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.input-container span {
+    font-size: 1.125rem;
+    margin-top: 0.5em;
+}
+
+.two-column-input {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 1em;
+    width: 100%;
+}
+
+.two-column-input:focus-within {
+    outline: 1px solid var(--primary-color); /* Change the color to match your design */
+}
+
+.two-column-input label {
+    margin: 0;
+    color: black;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin-right: 0.75em;
+}
+
+.two-column-input input {
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.two-column-input input:focus {
+    outline: none;
+}
+
 @media (max-width: 700px) {
     .two-column-card {
         grid-template-rows: 1fr 1fr;
