@@ -1035,11 +1035,23 @@ Submit recipe page
     #filters-count {
         display: flex;
     }
+
+    .ingredient-amount-input {
+        gap: 0;
+    }
 }
 
 @media (max-width: 375px) {
     section {
         padding-left: 1em;
         padding-right: 1em;
+    }
+
+    .ingredient-input-line {
+        flex-direction: column;
+    }
+
+    .photo-container {
+        padding: 1em;
     }
 }
