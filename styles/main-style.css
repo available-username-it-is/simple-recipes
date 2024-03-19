@@ -891,6 +891,15 @@ Submit recipe page
     text-decoration: underline;
 }
 
+#ingredients-display {
+    margin-top: 1em;
+}
+
+#ingredients-display li {
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 700px) {
     .two-column-card {
         grid-template-rows: 1fr 1fr;

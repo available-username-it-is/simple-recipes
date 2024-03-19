@@ -107,23 +107,24 @@
 
     <div class="input-container">
         <label for="">Ingredients</label>
+        <ul id="ingredients-display"></ul>
         <div class="ingredient-input-line">
             <input type="text" placeholder="Ingredient" id="ingredient-input">
             <div class="ingredient-amount-input">
-                <input type="number" min="0" max="9999" placeholder="0">
-                <select name="" id="">
+                <input type="number" min="0" max="9999" placeholder="0" id="amount-input">
+                <select name="" id="measurement-input">
                     <option value="">----</option>
-                    <option value="">Kilogram</option>
-                    <option value="">Gram</option>
-                    <option value="">Mililiter</option>
-                    <option value="">Liter</option>
-                    <option value="">Tablespoon</option>
-                    <option value="">Teaspoon</option>
+                    <option value="Kilogram">Kilogram</option>
+                    <option value="Gram">Gram</option>
+                    <option value="Mililiter">Mililiter</option>
+                    <option value="Liter">Liter</option>
+                    <option value="Tablespoon">Tablespoon</option>
+                    <option value="Teaspoon">Teaspoon</option>
                 </select>
             </div>
         </div>
 
-        <div class="add-line-container">
+        <div class="add-line-container" id="add-ingredient">
           <span><span class="plus-circle">+</span>Add ingredient</span>
         </div>
     </div>
@@ -164,6 +165,7 @@
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/submit-scripts.js"></script>
   </main>
 </body>
 </html>
