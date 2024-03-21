@@ -898,6 +898,17 @@ Submit recipe page
 #ingredients-display li {
     display: flex;
     align-items: center;
+    gap: 0.5em;
+    padding-left: 0;
+}
+
+#ingredients-display li span {
+    margin: 0;
+}
+
+#ingredients-display .close-icon {
+    cursor: pointer;
+    margin: 0;
 }
 
 @media (max-width: 700px) {
