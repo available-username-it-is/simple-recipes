@@ -902,13 +902,26 @@ Submit recipe page
     padding-left: 0;
 }
 
-#ingredients-display li span {
+#ingredients-display li span,
+#instructions-display li span {
     margin: 0;
 }
 
-#ingredients-display .close-icon {
+#ingredients-display .close-icon,
+#instructions-display .close-icon {
     cursor: pointer;
     margin: 0;
+}
+
+#instructions-display {
+    margin-top: 1em;
+}
+
+#instructions-display li > span {
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
 @media (max-width: 700px) {

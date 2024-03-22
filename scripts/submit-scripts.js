@@ -38,3 +38,35 @@ addIngredientButton.addEventListener("click", () => {
         });
     }
 })
+
+const addInstructionButton = document.getElementById("add-instruction");
+const instructionsList = document.getElementById("instructions-display");
+const instructionInput = document.querySelector("#instructions-container input");
+const instructions = [];
+addInstructionButton.addEventListener("click", () => {
+    if (instructionInput.value) {
+        const instruction = instructionInput.value;
+        instructions.push(instruction);
+        const instructionLine = document.createElement("li");
+        instructionLine.innerHTML = `
+            <span>
+                <span>${instruction}</span>
+                <span class="material-symbols-outlined close-icon">
+                    close
+                </span>
+            </span>
+            `;
+        instructionsList.appendChild(instructionLine);
+
+        instructionInput.value = '';
+
+        const closeIcon = instructionLine.querySelector(".close-icon");
+        closeIcon.addEventListener("click", () => {
+            const index = instructions.indexOf(instruction);
+            if (index !== -1) {
+                instructions.splice(index, 1);
+            }
+            instructionLine.remove();
+        })
+    }
+})
