@@ -73,6 +73,11 @@ header ul {
     gap: 1em;
 }
 
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
 header li {
     margin-bottom: 0;
     cursor: pointer;
