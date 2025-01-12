@@ -14,6 +14,6 @@ Database: MongoDB for storing recipes and user data
 Frontend: HTML, CSS, JavaScript (served statically from /public)
 
 # Live Demo
-(Check out the live site here)[https://simple-recipes.onrender.com/index.html]
+[Check out the live site here](https://simple-recipes.onrender.com/index.html)
 
 
