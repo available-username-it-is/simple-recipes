@@ -745,6 +745,11 @@ details .new-ingredient-container input {
 Submit recipe page
 */
 
+.error-label {
+    color: red;
+    display: none;
+}
+
 .input-container {
   width: 100%;
   display: flex;

@@ -8,6 +8,7 @@ const app = express();
 
 // middleware
 app.use(express.static("./public"));
+app.use(express.json());
 
 // routes
 app.use("/api/v1/recipes", recipes);

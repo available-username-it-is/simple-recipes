@@ -49,7 +49,13 @@ const RecipeSchema = new mongoose.Schema({
         type: Array
     },
     nutrition: {
-        type: Object
+        type: Object,
+        default: {
+            calories: 200,
+            carbs: 30,
+            proteins: 20,
+            fats: 25
+        }
     }
 });
 

@@ -1,10 +1,10 @@
 const addIngredientButton = document.querySelector("#add-ingredient");
 const ingredientsList = document.getElementById("ingredients-display");
 const ingredients = [];
+const ingredientInput = document.getElementById("ingredient-input");
+const amountInput = document.getElementById("amount-input");
+const measurementInput = document.getElementById("measurement-input");
 addIngredientButton.addEventListener("click", () => {
-    const ingredientInput = document.getElementById("ingredient-input");
-    const amountInput = document.getElementById("amount-input");
-    const measurementInput = document.getElementById("measurement-input");
     
     if (ingredientInput.value && amountInput.value) {
         const ingredient = {
@@ -68,5 +68,64 @@ addInstructionButton.addEventListener("click", () => {
             }
             instructionLine.remove();
         })
+    }
+})
+
+const recipeNameDOM = document.getElementById("recipe-name");
+const recipeMealtimeDOM = document.getElementById("mealtime");
+const recipeImageDOM = document.getElementById("image_uploads");
+const recipeDescriptionDOM = document.getElementById("description");
+const recipePrepHoursDOM = document.getElementById("prep-hours");
+const recipePrepMinsDOM = document.getElementById("prep-mins");
+const recipeCookHoursDOM = document.getElementById("cook-hours");
+const recipeCookMinsDOM = document.getElementById("cook-mins");
+const submitButtonDOM = document.getElementById("send-recipe");
+
+let ingredientsArray = [];
+submitButtonDOM.addEventListener("click", async () => {
+    const prepTime = recipePrepHoursDOM.value * 60 + +recipePrepMinsDOM.value;
+    const cookTime = recipeCookHoursDOM.value * 60 + +recipeCookMinsDOM.value;
+
+    console.log(recipeImageDOM.files);
+    let errors = false;
+    if (ingredients.length > 0) {
+        ingredientsArray = ingredients.map(ingredient => {
+            return `${ingredient.ingredient} ${ingredient.amount} ${ingredient.measurement}`;
+        });
+    } else {
+        errors = true;
+        ingredientInput.style.border = "1px solid red";
+        document.getElementById("ingredient-error").style.display = "inline";
+        setTimeout(() => {
+            ingredientInput.style.border = "none";
+            document.getElementById("ingredient-error").style.display = "none";
+        }, 5000);
+    }
+
+    if (instructions == false) {
+        errors = true;
+        instructionInput.style.border = "1px solid red";
+        document.querySelector("#instructions-container .error-label").style.display = "inline";
+        setTimeout(() => {
+           instructionInput.style.border = "none";
+           document.querySelector("#instructions-container .error-label").style.display = "none";
+        }, 5000);
+    }
+
+    if (!errors) {
+        const recipe = {
+            name: recipeNameDOM.value,
+            image: recipeImageDOM.value,  
+            text: recipeDescriptionDOM.value,
+            ingredients: ingredientsArray,
+            mealtime: recipeMealtimeDOM.value,
+            createdAt: Date.now(),
+            prepTime,
+            cookTime,
+            instructions: instructions,
+        };
+
+        const url = `api/v1/recipes`;
+        await axios.post(url, recipe);
     }
 })

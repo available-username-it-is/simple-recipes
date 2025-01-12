@@ -52,7 +52,8 @@ const getRecipe = async (req, res) => {
 
 const createRecipe = async (req, res) => {
     try {
-        res.json({ message: "Success" }); 
+        const recipe = Recipe.create(req.body);
+        res.json(recipe); 
     } catch (error) {
         res.status(500).send(error);
     }

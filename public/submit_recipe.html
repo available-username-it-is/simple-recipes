@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.ico">
   <link rel="stylesheet" href="./styles/main-style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
   <title>Simple Recipes</title>
 
 </head>
+
 <body>
   <header>
     <div class="logo-container">
@@ -47,103 +51,114 @@
 
     <!-- Start -->
     <section class="centered-section">
-        <h1>Submit your recipe</h1>
+      <h1>Submit your recipe</h1>
     </section>
 
     <div class="input-container">
       <label for="recipe-name">Title</label>
-      <input type="text" id="recipe-name" placeholder="Give your recipe a name">
+      <input type="text" id="recipe-name" name="name" placeholder="Give your recipe a name" minlength="3"
+        maxlength="100" required>
     </div>
 
     <div class="input-container">
-        <label for="image_uploads">
-            <div class="photo-container">
-                <img src="assets/images/camera-icon.svg" class="camera-icon">
-            
-                <p>Add photo</p>
-            </div>
-        </label>
-        <input type="file" name="image_uploads" id="image_uploads" accept=".jpg .jpeg .png">
+      <label for="mealtime">Mealtime</label>
+      <select name="" id="mealtime">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="snack">Snack</option>
+        <option value="dinner">Dinner</option>
+      </select>
     </div>
 
     <div class="input-container">
-        <label for="description">Description</label>
-        <textarea 
-            name="description" 
-            id="description" 
-            placeholder="Introduce your recipe, add notes, cooking tips..."
-            rows="3"></textarea>
+      <label for="image_uploads">
+        <div class="photo-container">
+          <img src="assets/images/camera-icon.svg" class="camera-icon">
+
+          <p>Add photo</p>
+        </div>
+      </label>
+      <input type="file" name="image_uploads" id="image_uploads" accept="image/png, image/jpeg">
     </div>
 
     <div class="input-container">
-        <label for="">Prep time</label>
-        <span>How long does it take to prepare this recipe?</span>
-        <div class="two-column-field">
-            <div class="two-column-input">
-                <label for="prep-hours">Hours</label>
-                <input type="text" placeholder="0" maxlength="4" id="prep-hours">
-            </div>
-            <div class="two-column-input">
-                <label for="prep-mins">Minutes</label>
-                <input type="text" placeholder="0" maxlength="4" id="prep-mins">
-            </div>
-        </div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" placeholder="Introduce your recipe, add notes, cooking tips..."
+        rows="3" required maxlength="1500"></textarea>
     </div>
 
     <div class="input-container">
-        <label for="">Cooking time</label>
-        <span>How long does it take to cook this recipe?</span>
-        <div class="two-column-field">
-            <div class="two-column-input">
-                <label for="cook-hours">Hours</label>
-                <input type="text" placeholder="0" maxlength="4" id="cook-hours">
-            </div>
-            <div class="two-column-input">
-                <label for="cook-mins">Minutes</label>
-                <input type="text" placeholder="0" maxlength="4" id="cook-mins">
-            </div>
+      <label for="">Prep time</label>
+      <span>How long does it take to prepare this recipe?</span>
+      <div class="two-column-field">
+        <div class="two-column-input">
+          <label for="prep-hours">Hours</label>
+          <input type="text" placeholder="0" maxlength="4" id="prep-hours" name="prep-hours" required>
         </div>
+        <div class="two-column-input">
+          <label for="prep-mins">Minutes</label>
+          <input type="text" placeholder="0" maxlength="4" id="prep-mins" name="prep-mins" required>
+        </div>
+      </div>
     </div>
 
     <div class="input-container">
-        <label for="">Ingredients</label>
-        <ul id="ingredients-display"></ul>
-        <div class="ingredient-input-line">
-            <input type="text" placeholder="Ingredient" id="ingredient-input">
-            <div class="ingredient-amount-input">
-                <input type="number" min="0" max="9999" placeholder="0" id="amount-input">
-                <select name="" id="measurement-input">
-                    <option value="">----</option>
-                    <option value="Kilogram">Kilogram</option>
-                    <option value="Gram">Gram</option>
-                    <option value="Mililiter">Mililiter</option>
-                    <option value="Liter">Liter</option>
-                    <option value="Tablespoon">Tablespoon</option>
-                    <option value="Teaspoon">Teaspoon</option>
-                </select>
-            </div>
+      <label for="">Cooking time</label>
+      <span>How long does it take to cook this recipe?</span>
+      <div class="two-column-field">
+        <div class="two-column-input">
+          <label for="cook-hours">Hours</label>
+          <input type="text" placeholder="0" maxlength="4" id="cook-hours" name="cook-hours" required>
         </div>
-
-        <div class="add-line-container" id="add-ingredient">
-          <span><span class="plus-circle">+</span>Add ingredient</span>
+        <div class="two-column-input">
+          <label for="cook-mins">Minutes</label>
+          <input type="text" placeholder="0" maxlength="4" id="cook-mins" name="cook-hours" required>
         </div>
+      </div>
     </div>
 
     <div class="input-container">
-        <label for="">Instructions</label>
-        <ol id="instructions-display"></ol>
-        <div id="instructions-container">
-            <input type="text" name="" placeholder="Instruction">
+      <label for="">Ingredients</label>
+      <ul id="ingredients-display"></ul>
+      <span class="error-label" id="ingredient-error">Input ingredients</span>
+      <div class="ingredient-input-line">
+        <input type="text" placeholder="Ingredient" id="ingredient-input">
+        <div class="ingredient-amount-input">
+          <input type="number" min="0" max="9999" placeholder="0" id="amount-input">
+          <select name="" id="measurement-input">
+            <option value="">----</option>
+            <option value="Kilogram">Kilogram</option>
+            <option value="Gram">Gram</option>
+            <option value="Mililiter">Mililiter</option>
+            <option value="Liter">Liter</option>
+            <option value="Tablespoon">Tablespoon</option>
+            <option value="Teaspoon">Teaspoon</option>
+          </select>
         </div>
-        
-        <div class="add-line-container" id="add-instruction">
-          <span><span class="plus-circle">+</span>Add instruction</span>
-        </div>
+      </div>
+
+      <div class="add-line-container" id="add-ingredient">
+        <span><span class="plus-circle">+</span>Add ingredient</span>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label for="">Instructions</label>
+      <ol id="instructions-display"></ol>
+      <div id="instructions-container">
+        <span class="error-label">Input instructions</span>
+        <input type="text" name="" placeholder="Instruction" maxlength="1500">
+      </div>
+
+      <div class="add-line-container" id="add-instruction">
+        <span><span class="plus-circle">+</span>Add instruction</span>
+      </div>
     </div>
 
     <div class="button-container">
-      <button>Save</button>
+      <button id="send-recipe">Save</button>
     </div>
+
     <!-- Finish -->
 
     <footer>
@@ -166,7 +181,9 @@
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="scripts/submit-scripts.js"></script>
   </main>
 </body>
+
 </html>
