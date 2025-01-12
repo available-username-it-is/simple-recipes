@@ -1,3 +1,5 @@
+![Homepage Screenshot](main_page.png)
+
 # Recipe Hub - Your Go-To Recipe Manager 🍳
 
 Welcome to Recipe Hub, a dynamic recipe website designed to inspire and simplify your cooking journey. This Node.js-powered site lets users explore, manage, and create recipes effortlessly.
